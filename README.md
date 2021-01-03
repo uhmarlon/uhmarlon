@@ -4,5 +4,5 @@
 <a href="https://twitter.com/1UhMarlon" target="_blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/twitter.svg" alt="rexlManu" height="20" width="20" /></a>
 </p>
 <p align="center">
-	<img src=https://github-readme-stats.vercel.app/api?username=uhmarlon&theme=dark&show_icons=true alt=uhmarlon />
+	<img src=https://github-readme-stats.vercel.app/api?username=uhmarlon&theme=dark&show_icons=true&count_private=true alt=uhmarlon />
 </p>
