@@ -9,6 +9,6 @@ Marlon Gehrmann / 18 / München, Germany
 
 
 [![node.js](https://img.shields.io/badge/-node.js-339933.svg?logo=node.js&logoColor=white&longCache=true&style=for-the-badge)](https://nodejs.org/en/)
-[![Twitter](https://img.shields.io/badge/-@1UhMarlon-03A9F4.svg?logo=twitter&logoColor=white&longCache=true&style=for-the-badge)](https://www.twitter.com/1UhMarlon)
+[![Twitter](https://img.shields.io/badge/-@marlongehrmann-03A9F4.svg?logo=twitter&logoColor=white&longCache=true&style=for-the-badge)](https://twitter.com/marlongehrmann)
 
 [![stats](https://github-readme-stats.vercel.app/api?username=uhmarlon&count_private=true&theme=tokyonight)](https://github.com/uhmarlon)
