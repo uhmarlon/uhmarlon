@@ -1,6 +1,10 @@
-# Hey, I'm Marlon 👋
-
-Marlon Gehrmann / 19 / München, Germany
+<a href="https://uhmarlon.dev/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/uhmarlon/uhmarlon/main/header-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/uhmarlon/uhmarlon/main/header.svg" />
+    <img alt="UhMarlon / Developer" src="https://raw.githubusercontent.com/uhmarlon/uhmarlon/main/header.svg" width="100%" />
+  </picture>
+</a>
 
 [![TypeScript](https://img.shields.io/badge/-typescript-007ACC.svg?logo=typescript&logoColor=white&longCache=true&style=for-the-badge)](https://github.com/uhmarlon?tab=repositories&q=&type=&language=typescript)
 [![JavaScript](https://img.shields.io/badge/-javascript-F7DF1E.svg?logo=javascript&logoColor=white&longCache=true&style=for-the-badge)](https://github.com/uhmarlon?tab=repositories&q=&type=&language=javascript)
