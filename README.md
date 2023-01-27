@@ -1,8 +1,8 @@
 <a href="https://uhmarlon.dev/">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/uhmarlon/uhmarlon/main/header-dark3.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/uhmarlon/uhmarlon/main/header.svg" />
-    <img alt="UhMarlon / Developer" src="https://raw.githubusercontent.com/uhmarlon/uhmarlon/main/header.svg" width="100%" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/uhmarlon/uhmarlon/main/header-darkv2.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/uhmarlon/uhmarlon/main/headerv2.svg" />
+    <img alt="UhMarlon / Developer" src="https://raw.githubusercontent.com/uhmarlon/uhmarlon/main/headerv2.svg" width="100%" />
   </picture>
 </a>
 
