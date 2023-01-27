@@ -6,6 +6,7 @@
   </picture>
 </a>
 
+Marlon Gehrmann / 19 / München, Germany
 
 ```yaml
 frontend: react/nextjs, tailwind, svelte
