@@ -1,8 +1,6 @@
 <a href="https://uhmarlon.dev/">
   <picture>
-    <source srcset="https://raw.githubusercontent.com/uhmarlon/uhmarlon/main/header-darkv2.svg">
-<!--     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/uhmarlon/uhmarlon/main/headerv2.svg" /> -->
-    <img alt="UhMarlon / Developer" src="https://raw.githubusercontent.com/uhmarlon/uhmarlon/main/headerv2.svg" width="100%" />
+    <img alt="UhMarlon / Developer" src="https://raw.githubusercontent.com/uhmarlon/uhmarlon/main/header.svg" width="100%" />
   </picture>
 </a>
 
