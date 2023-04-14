@@ -1,7 +1,5 @@
 <a href="https://uhmarlon.dev/">
-  <picture>
     <img alt="UhMarlon / Developer" src="https://raw.githubusercontent.com/uhmarlon/uhmarlon/main/header.svg" width="100%" />
-  </picture>
 </a>
 
 Marlon Gehrmann / 19 / München, Germany
