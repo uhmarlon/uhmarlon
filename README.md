@@ -2,7 +2,7 @@
     <img alt="UhMarlon / Developer" src="https://raw.githubusercontent.com/uhmarlon/uhmarlon/main/header.svg" width="100%" />
 </a>
 
-Marlon Gehrmann / 19 / München, Germany
+Marlon Gehrmann / 20 / München, Germany
 
 ```yaml
 frontend: react/nextjs, tailwind, svelte
