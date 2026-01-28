@@ -1,118 +1,164 @@
 <svg width="1920" height="320" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0d1117"/>
-      <stop offset="100%" stop-color="#161b22"/>
+    <!-- Glow filter for accent wave -->
+    <filter id="glow" x="-5%" y="-100%" width="110%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Glow for name text -->
+    <filter id="nameGlow" x="-15%" y="-40%" width="130%" height="180%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Dot grid pattern -->
+    <pattern id="dotGrid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <circle cx="25" cy="25" r="0.6" fill="#ffffff" opacity="0.04"/>
+    </pattern>
+
+    <!-- Gradient for name -->
+    <linearGradient id="nameGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#67e8f9"/>
     </linearGradient>
-    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="glow3" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
-    </radialGradient>
+
+    <!-- Gradient for accent wave stroke -->
+    <linearGradient id="accentStroke" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="25%" stop-color="#a78bfa"/>
+      <stop offset="50%" stop-color="#ec4899"/>
+      <stop offset="75%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+
+    <!-- Gradient for accent line -->
     <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#6366f1"/>
-      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="50%" stop-color="#ec4899"/>
       <stop offset="100%" stop-color="#22d3ee"/>
     </linearGradient>
-    <linearGradient id="nameGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#c4b5fd"/>
-      <stop offset="100%" stop-color="#67e8f9"/>
+
+    <!-- Bottom fade gradient -->
+    <linearGradient id="bottomFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0a12" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.06"/>
     </linearGradient>
   </defs>
 
   <style>
-    @keyframes drift1 {
-      0%, 100% { transform: translate(0px, 0px); }
-      25% { transform: translate(40px, -20px); }
-      50% { transform: translate(20px, 15px); }
-      75% { transform: translate(-20px, -10px); }
+    @keyframes moveRight {
+      from { transform: translateX(0); }
+      to { transform: translateX(-1920px); }
     }
-    @keyframes drift2 {
-      0%, 100% { transform: translate(0px, 0px); }
-      25% { transform: translate(-30px, 25px); }
-      50% { transform: translate(-50px, -15px); }
-      75% { transform: translate(20px, 20px); }
+    @keyframes moveLeft {
+      from { transform: translateX(-1920px); }
+      to { transform: translateX(0); }
     }
-    @keyframes drift3 {
-      0%, 100% { transform: translate(0px, 0px); }
-      25% { transform: translate(25px, 30px); }
-      50% { transform: translate(-40px, 10px); }
-      75% { transform: translate(15px, -25px); }
-    }
-    @keyframes pulse1 {
-      0%, 100% { opacity: 0.7; }
-      50% { opacity: 1; }
-    }
-    @keyframes pulse2 {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 0.9; }
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0); opacity: var(--fo, 0.4); }
+      50% { transform: translateY(-14px); opacity: var(--fp, 0.8); }
     }
     @keyframes cursorBlink {
       0%, 49% { opacity: 1; }
       50%, 100% { opacity: 0; }
     }
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.15; }
-      50% { opacity: 0.7; }
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 0.9; }
     }
-    .b1 { animation: drift1 20s ease-in-out infinite, pulse1 8s ease-in-out infinite; }
-    .b2 { animation: drift2 25s ease-in-out infinite, pulse2 10s ease-in-out infinite; }
-    .b3 { animation: drift3 22s ease-in-out infinite, pulse1 12s ease-in-out infinite; }
+    .w1 { animation: moveRight 18s linear infinite; }
+    .w2 { animation: moveLeft 14s linear infinite; }
+    .w3 { animation: moveRight 22s linear infinite; }
+    .wa { animation: moveRight 11s linear infinite; }
+    .fl { animation: floatUp 4s ease-in-out infinite; }
     .cur { animation: cursorBlink 1.1s step-end infinite; }
-    .tw { animation: twinkle 4s ease-in-out infinite; }
+    .sh { animation: shimmer 4s ease-in-out infinite; }
   </style>
 
   <!-- Background -->
-  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+  <rect width="100%" height="100%" fill="#0a0a12"/>
+  <rect width="100%" height="100%" fill="url(#dotGrid)"/>
+  <rect width="100%" height="100%" fill="url(#bottomFade)"/>
 
-  <!-- Animated aurora blobs -->
-  <ellipse class="b1" cx="250" cy="150" rx="400" ry="280" fill="url(#glow1)"/>
-  <ellipse class="b2" cx="1500" cy="170" rx="450" ry="320" fill="url(#glow2)"/>
-  <ellipse class="b3" cx="850" cy="60" rx="380" ry="240" fill="url(#glow3)"/>
+  <!-- Ambient background glow -->
+  <ellipse cx="960" cy="240" rx="700" ry="200" fill="#6366f1" opacity="0.035"/>
+  <ellipse cx="600" cy="260" rx="450" ry="180" fill="#8b5cf6" opacity="0.025"/>
+  <ellipse cx="1300" cy="250" rx="450" ry="180" fill="#22d3ee" opacity="0.02"/>
+  <ellipse cx="960" cy="280" rx="500" ry="120" fill="#ec4899" opacity="0.015"/>
 
-  <!-- Twinkling dots -->
-  <circle class="tw" cx="180" cy="40" r="1.5" fill="#c4b5fd" style="animation-delay:-0.5s"/>
-  <circle class="tw" cx="420" cy="280" r="1.2" fill="#67e8f9" style="animation-delay:-1.2s"/>
-  <circle class="tw" cx="650" cy="30" r="1" fill="#a78bfa" style="animation-delay:-2.8s"/>
-  <circle class="tw" cx="890" cy="290" r="1.5" fill="#c4b5fd" style="animation-delay:-0.8s"/>
-  <circle class="tw" cx="1100" cy="25" r="1.2" fill="#67e8f9" style="animation-delay:-3.5s"/>
-  <circle class="tw" cx="1320" cy="275" r="1" fill="#a78bfa" style="animation-delay:-1.8s"/>
-  <circle class="tw" cx="1550" cy="35" r="1.5" fill="#c4b5fd" style="animation-delay:-2.2s"/>
-  <circle class="tw" cx="1750" cy="285" r="1.2" fill="#67e8f9" style="animation-delay:-0.3s"/>
-  <circle class="tw" cx="300" cy="260" r="1" fill="#a78bfa" style="animation-delay:-1.5s"/>
-  <circle class="tw" cx="750" cy="270" r="1.5" fill="#67e8f9" style="animation-delay:-2.5s"/>
-  <circle class="tw" cx="1000" cy="15" r="1" fill="#c4b5fd" style="animation-delay:-3.2s"/>
-  <circle class="tw" cx="1400" cy="45" r="1.2" fill="#a78bfa" style="animation-delay:-1s"/>
-  <circle cx="500" cy="55" r="1" fill="#e2e8f0" opacity="0.08"/>
-  <circle cx="1200" cy="50" r="1" fill="#e2e8f0" opacity="0.06"/>
-  <circle cx="960" cy="300" r="1" fill="#e2e8f0" opacity="0.07"/>
-  <circle cx="1650" cy="60" r="1" fill="#e2e8f0" opacity="0.05"/>
+  <!-- ============ WAVE LAYER 1: Purple (back, moving right) ============ -->
+  <g class="w1">
+    <path d="M 0,258 C 80,228 160,228 240,258 S 400,288 480,258 S 640,228 720,258 S 880,288 960,258 S 1120,228 1200,258 S 1360,288 1440,258 S 1600,228 1680,258 S 1840,288 1920,258 S 2080,228 2160,258 S 2320,288 2400,258 S 2560,228 2640,258 S 2800,288 2880,258 S 3040,228 3120,258 S 3280,288 3360,258 S 3520,228 3600,258 S 3760,288 3840,258 V 320 H 0 Z"
+      fill="#818cf8" opacity="0.18"/>
+  </g>
+
+  <!-- ============ WAVE LAYER 2: Cyan (middle, moving left) ============ -->
+  <g class="w2">
+    <path d="M 0,270 C 80,292 160,292 240,270 S 400,248 480,270 S 640,292 720,270 S 880,248 960,270 S 1120,292 1200,270 S 1360,248 1440,270 S 1600,292 1680,270 S 1840,248 1920,270 S 2080,292 2160,270 S 2320,248 2400,270 S 2560,292 2640,270 S 2800,248 2880,270 S 3040,292 3120,270 S 3280,248 3360,270 S 3520,292 3600,270 S 3760,248 3840,270 V 320 H 0 Z"
+      fill="#67e8f9" opacity="0.13"/>
+  </g>
+
+  <!-- ============ WAVE LAYER 3: Pink (front, moving right slower) ============ -->
+  <g class="w3">
+    <path d="M 0,264 C 64,246 128,246 192,264 S 320,282 384,264 S 512,246 576,264 S 704,282 768,264 S 896,246 960,264 S 1088,282 1152,264 S 1280,246 1344,264 S 1472,282 1536,264 S 1664,246 1728,264 S 1856,282 1920,264 S 2048,246 2112,264 S 2240,282 2304,264 S 2432,246 2496,264 S 2624,282 2688,264 S 2816,246 2880,264 S 3008,282 3072,264 S 3200,246 3264,264 S 3392,282 3456,264 S 3584,246 3648,264 S 3776,282 3840,264 V 320 H 0 Z"
+      fill="#f472b6" opacity="0.1"/>
+  </g>
+
+  <!-- ============ ACCENT WAVE STROKE with glow ============ -->
+  <g class="wa" filter="url(#glow)">
+    <path d="M 0,262 C 80,234 160,234 240,262 S 400,290 480,262 S 640,234 720,262 S 880,290 960,262 S 1120,234 1200,262 S 1360,290 1440,262 S 1600,234 1680,262 S 1840,290 1920,262 S 2080,234 2160,262 S 2320,290 2400,262 S 2560,234 2640,262 S 2800,290 2880,262 S 3040,234 3120,262 S 3280,290 3360,262 S 3520,234 3600,262 S 3760,290 3840,262"
+      stroke="url(#accentStroke)" stroke-width="1.5" fill="none" opacity="0.7"/>
+  </g>
+
+  <!-- ============ FLOATING PARTICLES ============ -->
+  <circle class="fl" cx="120" cy="75" r="2" fill="#a78bfa" style="animation-delay:-0.5s;animation-duration:5s;--fo:0.3;--fp:0.7"/>
+  <circle class="fl" cx="340" cy="55" r="1.5" fill="#67e8f9" style="animation-delay:-1.2s;animation-duration:6s;--fo:0.25;--fp:0.65"/>
+  <circle class="fl" cx="530" cy="90" r="2.2" fill="#f472b6" style="animation-delay:-2.5s;animation-duration:4.5s;--fo:0.2;--fp:0.6"/>
+  <circle class="fl" cx="720" cy="40" r="1.5" fill="#818cf8" style="animation-delay:-0.8s;animation-duration:5.5s;--fo:0.35;--fp:0.75"/>
+  <circle class="fl" cx="910" cy="70" r="2" fill="#67e8f9" style="animation-delay:-3.2s;animation-duration:6.5s;--fo:0.25;--fp:0.6"/>
+  <circle class="fl" cx="1100" cy="50" r="1.8" fill="#a78bfa" style="animation-delay:-1.8s;animation-duration:5s;--fo:0.3;--fp:0.7"/>
+  <circle class="fl" cx="1300" cy="80" r="2" fill="#f472b6" style="animation-delay:-2.2s;animation-duration:4s;--fo:0.2;--fp:0.55"/>
+  <circle class="fl" cx="1500" cy="35" r="1.5" fill="#67e8f9" style="animation-delay:-0.3s;animation-duration:6s;--fo:0.35;--fp:0.75"/>
+  <circle class="fl" cx="1700" cy="65" r="2.2" fill="#818cf8" style="animation-delay:-1.5s;animation-duration:5.5s;--fo:0.25;--fp:0.65"/>
+  <circle class="fl" cx="1850" cy="45" r="1.5" fill="#a78bfa" style="animation-delay:-2.8s;animation-duration:4.5s;--fo:0.3;--fp:0.7"/>
+  <circle class="fl" cx="250" cy="190" r="1.2" fill="#818cf8" style="animation-delay:-3.5s;animation-duration:7s;--fo:0.15;--fp:0.4"/>
+  <circle class="fl" cx="650" cy="175" r="1" fill="#67e8f9" style="animation-delay:-1s;animation-duration:6s;--fo:0.2;--fp:0.45"/>
+  <circle class="fl" cx="1050" cy="185" r="1.2" fill="#f472b6" style="animation-delay:-2s;animation-duration:5s;--fo:0.15;--fp:0.4"/>
+  <circle class="fl" cx="1450" cy="180" r="1" fill="#818cf8" style="animation-delay:-0.7s;animation-duration:7s;--fo:0.2;--fp:0.45"/>
+  <circle class="fl" cx="1800" cy="170" r="1.2" fill="#a78bfa" style="animation-delay:-3s;animation-duration:6.5s;--fo:0.15;--fp:0.4"/>
+
+  <!-- ============ BOTTOM NEON LINE ============ -->
+  <rect x="0" y="316" width="1920" height="2" rx="1" fill="url(#accentLine)" opacity="0.25" class="sh"/>
+
+  <!-- ============ TEXT ============ -->
+  <!-- Name glow (behind) -->
+  <text x="290" y="122" font-size="56" fill="#a78bfa" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-weight="700" letter-spacing="-1" filter="url(#nameGlow)" opacity="0.4">Marlon</text>
 
   <!-- Heading -->
-  <text x="80" y="125" font-size="54" fill="#e2e8f0" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-weight="300" letter-spacing="-1">
+  <text x="80" y="122" font-size="56" fill="#e2e8f0" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-weight="300" letter-spacing="-1">
     Hey, I'm <tspan font-weight="700" fill="url(#nameGrad)">Marlon</tspan>
   </text>
 
   <!-- Subtitle -->
-  <text x="82" y="185" font-size="26" fill="#8b949e" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-weight="400" letter-spacing="2">
+  <text x="82" y="178" font-size="26" fill="#94a3b8" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-weight="400" letter-spacing="2">
     Software Engineer
   </text>
 
   <!-- Blinking cursor -->
-  <rect class="cur" x="330" y="162" width="2.5" height="28" rx="1" fill="#a78bfa"/>
+  <rect class="cur" x="332" y="156" width="2.5" height="28" rx="1" fill="#a78bfa"/>
 
   <!-- Accent gradient line -->
-  <rect x="80" y="202" width="140" height="3" rx="1.5" fill="url(#accentLine)"/>
+  <rect x="80" y="196" width="160" height="3" rx="1.5" fill="url(#accentLine)"/>
 
   <!-- Location -->
-  <text x="82" y="250" font-size="16" fill="#6b7280" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-weight="400" letter-spacing="0.5">
+  <text x="82" y="235" font-size="15" fill="#4b5563" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-weight="400" letter-spacing="0.5">
     München, Germany
   </text>
 </svg>
